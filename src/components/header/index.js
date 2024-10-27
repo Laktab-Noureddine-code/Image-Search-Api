@@ -29,6 +29,10 @@ export default function Header({ onInputChange, onSearch }) {
               onMouseOver={() => {
                 setDisplayTypes(true);
               }}
+              onClick={()=>{
+                setDisplayTypes(!displayTypes);
+
+              }}
             >
               <i className={content.icon}></i>
               {content.type}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./style.css";
 const types = [
   { id: 1, icon: "ri-landscape-fill", type: "Photos" },
@@ -8,13 +8,15 @@ export default function Header({ onInputChange, onSearch }) {
   const [inputValue, setInputValue] = useState("");
   const [contentTypes, setContentsTypes] = useState(types);
   const [chosingType, setChosingType] = useState(1);
-  const content = contentTypes.find((type) => type.id == chosingType);
-  console.log(content);
+  const [displayTypes, setDisplayTypes] = useState(false);
+  const content = contentTypes.find((type) => type.id === chosingType);
+
   function handleChange(e) {
     const newValue = e.target.value;
     setInputValue(newValue);
     onInputChange(newValue);
   }
+
   return (
     <div className="header">
       <div className="logo">
@@ -23,41 +25,37 @@ export default function Header({ onInputChange, onSearch }) {
       <div className="search-bar">
         <div className="search-type">
           <div className="main-type">
-            <button>
-              <i className={content.icon}></i>{content.type}
+            <button
+              onMouseOver={() => {
+                setDisplayTypes(true);
+              }}
+            >
+              <i className={content.icon}></i>
+              {content.type}
             </button>
           </div>
           <div className="chose-type">
-            {contentTypes.map((type) => {
-              return (
-                <button
-                  onClick={() => {
-                    setChosingType(type.id);
-                  }}
-                >
-                  <i className={type.icon}></i>
-                  {type.type}
-                </button>
-              );
-            })}
-            {/* <button
-              onClick={() => {
-                setChosingType(1);
-              }}
-            >
-              <i className="ri-landscape-fill"></i>Photos
-            </button>
-            <button
-              onClick={() => {
-                setChosingType(1);
-              }}
-            >
-              <i className="ri-video-line"></i>Videos
-            </button> */}
+            {displayTypes
+              ? contentTypes.map((type) => {
+                  return (
+                    <button
+                      key={type.id}
+                      onClick={() => {
+                        setChosingType(type.id);
+                        setDisplayTypes(false)
+                      }}
+                    >
+                      <i className={type.icon}></i>
+                      {type.type}
+                    </button>
+                  );
+                })
+              : null}
           </div>
         </div>
         <div className="search-input">
           <input
+          placeholder="Search for free photos & videos"
             value={inputValue}
             onChange={(e) => {
               handleChange(e);
@@ -72,6 +70,7 @@ export default function Header({ onInputChange, onSearch }) {
           </button>
         </div>
       </div>
+
     </div>
   );
 }

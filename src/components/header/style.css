@@ -1,0 +1,87 @@
+:root{
+    --color :  rgb(4, 166, 4);
+}
+.header{
+    border: 1px solid black;
+    padding: 4px 40px;
+    display: flex;
+    align-items: center;
+    gap: 7rem;
+    width: 100%;
+    
+}
+.header .search-bar{
+    display: flex;
+    align-items: center;
+    width: auto;
+    background-color: #eae8e8;
+    border-radius: 7px;
+    height: 50px;
+    padding: 6px;
+}
+
+/* TODO : Seach TYPE */
+
+.header .search-type {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 4px;
+    position: relative;
+}
+.header .search-type .chose-type{
+    position: absolute;
+    top: 108%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d9d9d9;
+    /* padding: px; */
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 2px 2px 6px #0000003e;
+}
+.header .search-type .chose-type button{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 16px;
+    margin: 7px;
+    cursor: pointer;
+}
+.header .search-type .chose-type button:hover{
+    color: var(--color);
+}
+
+
+.header .search-input{
+    position: relative;
+    height: 100%;
+    width: 390px;
+    border-radius: 7px;
+    /* border-left: 1px solid black; */
+}
+.header .search-input input{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    background-color: transparent;
+    padding-left: 20px;
+    font-size: 19px;
+    border: 1px solid grey;
+}
+.header .search-input input:focus{
+    outline: none;
+}
+.header .search-input button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    border: none;
+    background-color: transparent;
+    padding: 6px;
+    font-size: 20px;
+    cursor: pointer;
+}

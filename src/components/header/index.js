@@ -4,7 +4,7 @@ const types = [
   { id: 1, icon: "ri-landscape-fill", type: "Photos" },
   { id: 2, icon: "ri-video-line", type: "Videos" },
 ];
-export default function Header({ onInputChange, onSearch }) {
+export default function Header({ onInputChange, onSearch, onTypeChange }) {
   const [inputValue, setInputValue] = useState("");
   const [contentTypes, setContentsTypes] = useState(types);
   const [chosingType, setChosingType] = useState(1);
@@ -20,18 +20,23 @@ export default function Header({ onInputChange, onSearch }) {
   return (
     <div className="header">
       <div className="logo">
-        <h1>Pixels</h1>
+        <h1>LakPics</h1>
       </div>
       <div className="search-bar">
+        <div className="search-input">
+          <input
+            placeholder="Search for free photos & videos"
+            value={inputValue}
+            onChange={(e) => {
+              handleChange(e);
+            }}
+          />
+        </div>
         <div className="search-type">
           <div className="main-type">
             <button
-              onMouseOver={() => {
-                setDisplayTypes(true);
-              }}
-              onClick={()=>{
+              onClick={() => {
                 setDisplayTypes(!displayTypes);
-
               }}
             >
               <i className={content.icon}></i>
@@ -46,7 +51,8 @@ export default function Header({ onInputChange, onSearch }) {
                       key={type.id}
                       onClick={() => {
                         setChosingType(type.id);
-                        setDisplayTypes(false)
+                        setDisplayTypes(false);
+                        onTypeChange(type.type);
                       }}
                     >
                       <i className={type.icon}></i>
@@ -57,24 +63,17 @@ export default function Header({ onInputChange, onSearch }) {
               : null}
           </div>
         </div>
-        <div className="search-input">
-          <input
-          placeholder="Search for free photos & videos"
-            value={inputValue}
-            onChange={(e) => {
-              handleChange(e);
-            }}
-          />
+        <div className="search-button">
           <button
             onClick={() => {
               onSearch(inputValue);
             }}
           >
             <i className="ri-search-2-line"></i>
+            <p>Search</p>
           </button>
         </div>
       </div>
-
     </div>
   );
 }

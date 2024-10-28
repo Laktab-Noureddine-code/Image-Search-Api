@@ -6,17 +6,32 @@
     width: 95%;
     margin: 20px auto;
     columns: 3;
-    column-gap: 20px;
+    column-gap: 13px;
 }
 .grid-container .photo{
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 13px;
     break-inside: avoid;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .grid-container .photo img{
+    max-width: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.grid-container .Videos{
+    width: 100%;
+    margin-bottom: 13px;
+    break-inside: avoid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid-container .Videos video{
     max-width: 100%;
     width: 100%;
     object-fit: cover;

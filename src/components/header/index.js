@@ -4,18 +4,17 @@ const types = [
   { id: 1, icon: "ri-landscape-fill", type: "Photos" },
   { id: 2, icon: "ri-video-line", type: "Videos" },
 ];
-export default function Header({ onInputChange, onSearch, onTypeChange }) {
+export default function Header({ onSearch, onTypeChange }) {
   const [inputValue, setInputValue] = useState("");
   const [contentTypes, setContentsTypes] = useState(types);
   const [chosingType, setChosingType] = useState(1);
   const [displayTypes, setDisplayTypes] = useState(false);
   const content = contentTypes.find((type) => type.id === chosingType);
 
-  function handleChange(e) {
-    const newValue = e.target.value;
-    setInputValue(newValue);
-    onInputChange(newValue);
-  }
+  // function handleChange(e) {
+  //   const newValue = e.target.value;
+  //   // onInputChange(newValue);
+  // }
 
   return (
     <div className="header">
@@ -28,7 +27,7 @@ export default function Header({ onInputChange, onSearch, onTypeChange }) {
             placeholder="Search for free photos & videos"
             value={inputValue}
             onChange={(e) => {
-              handleChange(e);
+              setInputValue(e.target.value);
             }}
           />
         </div>
@@ -66,7 +65,7 @@ export default function Header({ onInputChange, onSearch, onTypeChange }) {
         <div className="search-button">
           <button
             onClick={() => {
-              onSearch(inputValue);
+              onSearch(inputValue ,chosingType);
             }}
           >
             <i className="ri-search-2-line"></i>

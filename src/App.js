@@ -71,7 +71,7 @@ function App() {
   }
 
   function onSearch(query ,type){
-    if(type === "photos"){
+    if(type === "Photos"){
       searchImage(query)
     }else{
       searchVideo(query)
@@ -85,6 +85,7 @@ function App() {
         onSearch={onSearch}
         onTypeChange={onTypeChange}
       />
+
       <ImageContainer
         type={contentType}
         data={contentType === "Photos" ? imagesData : videosData}

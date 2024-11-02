@@ -1,7 +1,9 @@
 /**
- * TODO : CHOSE CONTENT TYPE (PHOTO , VIDEO) => ...
- * TODO : SAVE PHOTO BUTTON
+ * TODO : CHOSE CONTENT TYPE (PHOTO , VIDEO) =>  => bug
+ * TODO : SAVE PHOTO BUTTON => ...
+ *      * popUp
+ *      * [width x height] ,save ,photographer ,
  * TODO : MULTI PAGES
  * TODO : SHOSE THE WIDTH AND THE HEIGHT
- * TODO : LOAD CONTENT BEFORE FETCH
+ * TODO : LOAD CONTENT BEFORE FETCH => https://www.youtube.com/watch?v=R1FG54FY-18
  */

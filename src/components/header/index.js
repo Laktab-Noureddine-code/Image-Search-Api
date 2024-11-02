@@ -65,7 +65,7 @@ export default function Header({ onSearch, onTypeChange }) {
         <div className="search-button">
           <button
             onClick={() => {
-              onSearch(inputValue ,chosingType);
+              onSearch(inputValue, content.type);
             }}
           >
             <i className="ri-search-2-line"></i>

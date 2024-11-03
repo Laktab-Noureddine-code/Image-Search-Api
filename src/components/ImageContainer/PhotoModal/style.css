@@ -1,0 +1,126 @@
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: white;
+  padding: 20px;
+  border-radius: 7px;
+  width: 70%;
+  height: 90vh;
+  overflow-Y: scroll;
+}
+.modal-content::-webkit-scrollbar{
+    width: 0;
+}
+.modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  /* position: relative; */
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+.modal-main {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-main img {
+  height: 100%;
+  object-fit: cover;
+}
+.close-btn {
+  background-color: rgb(246, 246, 246);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 30px;
+  border: none;
+}
+.close-btn:hover {
+  border: 1px solid #00000025;
+  background-color: rgb(231, 231, 231);
+}
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #4da083;
+    height: 45px;
+    border-radius: 7px;
+    width: 170px;
+    cursor: pointer;
+    position: relative;
+}
+.download-btn button{
+    flex-basis: 80%;
+    height: 100%;
+    background-color: transparent;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+.download-btn i{
+    flex-basis: 20%;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+.download-btn .dropdown-src{
+    background-color: white;
+    position: absolute;
+    z-index: 1010;
+    border: 1px solid rgb(219, 219, 219);
+    top: 108%;
+    left: 50%;
+    width: 200px;
+    border-radius: 7px;
+    transform: translateX(-50%);
+}
+.download-btn .dropdown-src li{
+    list-style-type: none;
+    border-bottom: 1px solid rgb(234, 234, 234) ;
+    padding: 10px;
+    color: black;
+    position: relative;
+}
+.download-btn .dropdown-src li:last-child{
+    border: none;
+    border-radius: 0  0 7px 7px;
+}
+.download-btn .dropdown-src li:first-child{
+    border-radius:7px 7px 0  0 ;
+}
+.download-btn .dropdown-src li i{
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+}
+.download-btn .dropdown-src li:hover{
+    background-color: rgb(234, 234, 234) ;
+}
+/* .photo-src {
+    display: none;
+} */

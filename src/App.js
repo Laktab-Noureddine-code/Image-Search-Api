@@ -13,7 +13,7 @@ function App() {
   const myKey = "pXNI9HvH3D82yh2tQPJsJWBfykcZRX0pc37vtm9Sv3DwGsptnHa3RcjG";
 
   // une fonction asynchrone pour récupérer les données de l'API
-  async function searchImage(query, perPage = 15, page = 1) {
+  async function searchImage(query, perPage = 15, page = 2) {
     try {
       // 'await' suspend l'exécution de la fonction jusqu'à ce que la promesse fetch soit résolue
       const response = await fetch(
@@ -36,6 +36,19 @@ function App() {
       console.log(error);
     }
   }
+  function handleScroll(){
+    let height = document.documentElement.scrollHeight
+    let top = document.documentElement.scrollTop;
+    let window_height = window.innerHeight;
+    let result = window_height+top + 1
+    // if(result > height){
+    //   setImagesData(prev=>prev.)
+    // }
+
+  }
+  useEffect(()=>{
+    window.addEventListener('scroll' ,handleScroll)
+  })
   async function searchVideo(query, perPage = 15, page = 1) {
     try {
       const responce = await fetch(
@@ -61,27 +74,22 @@ function App() {
   useEffect(() => {
     searchImage("nature");
   }, []);
-  // function handleChange(value) {
-  //   // cette fonction est changer la valeur de searchBarValue
-  //   setSearchBarValue(value);
-  // }
 
   function onTypeChange(type) {
     setContentsType(type);
   }
 
-  function onSearch(query ,type){
-    if(type === "Photos"){
-      searchImage(query)
-    }else{
-      searchVideo(query)
+  function onSearch(query, type) {
+    if (type === "Photos") {
+      searchImage(query);
+    } else {
+      searchVideo(query);
     }
   }
-  
+
   return (
     <div className="App">
       <Header
-        // onInputChange={handleChange}
         onSearch={onSearch}
         onTypeChange={onTypeChange}
       />

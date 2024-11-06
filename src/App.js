@@ -5,15 +5,15 @@ import ImageContainer from "./components/ImageContainer/index.js";
 
 function App() {
   // ceci est un état qui enregistre les valeurs qui viennent de l'en-tête (barre de recherche)
-  // const [searchBarValue, setSearchBarValue] = useState("");
   const [imagesData, setImagesData] = useState([]);
   const [videosData, setVideosData] = useState([]);
+  const [imgCount ,setImgCount] = useState(15)
   const [contentType, setContentsType] = useState("Photos");
   // ici je stocke ma clé API
   const myKey = "pXNI9HvH3D82yh2tQPJsJWBfykcZRX0pc37vtm9Sv3DwGsptnHa3RcjG";
 
   // une fonction asynchrone pour récupérer les données de l'API
-  async function searchImage(query, perPage = 15, page = 2) {
+  async function searchImage(query, perPage = imgCount, page = 1) {
     try {
       // 'await' suspend l'exécution de la fonction jusqu'à ce que la promesse fetch soit résolue
       const response = await fetch(
@@ -40,10 +40,9 @@ function App() {
     let height = document.documentElement.scrollHeight
     let top = document.documentElement.scrollTop;
     let window_height = window.innerHeight;
-    let result = window_height+top + 1
-    // if(result > height){
-    //   setImagesData(prev=>prev.)
-    // }
+    if(top + window_height + 1 >= height){
+      setImgCount(prev => prev + 15);
+    }
 
   }
   useEffect(()=>{
